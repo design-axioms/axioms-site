@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/:path(.+)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    }
+  ]
+}
