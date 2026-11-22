@@ -57,13 +57,22 @@ Local multi-repo workspace layout:
   primitive runtime snapshot). Clean CI and Vercel checkouts must build
   standalone without sibling directories and without prematurely freezing
   Layout's public library API.
-- **Redirect narrowing prerequisite**: `vercel.json` currently redirects
-  `/:path(.+)` to `https://www.axioms.design/:path*`. Because Vercel runs
-  `redirects` before filesystem lookups, narrow that catch-all to known Color
-  v1 prefixes (`/concepts/:path*`, `/guides/:path*`, `/theory/:path*`,
-  `/catalog/:path*`, `/advanced/:path*`, `/reference/:path*`, `/why-axiomatic`,
-  `/philosophy`, `/alpha-limitations`) before publishing any secondary pages or
-  external assets under `public/`.
+- **Narrowed apex redirects (done with the first specimen)**: `vercel.json`
+  used to redirect `/:path(.+)` to `https://www.axioms.design/:path*`.
+  Because Vercel runs `redirects` before filesystem lookups, that rule would
+  have captured this site's own assets. It now forwards only the Color v1
+  paths, each to the same path on `www.axioms.design`, as temporary
+  redirects:
+  - families, including the bare path, its trailing-slash form and
+    everything below: `/concepts`, `/guides`, `/theory`, `/catalog`,
+    `/advanced`, `/reference`, `/studio`, `/hud`, `/why-axiomatic`,
+    `/philosophy`, `/alpha-limitations`;
+  - files: `/llms.txt`, `/llms-full.txt`, `/sitemap-index.xml`,
+    `/sitemap-0.xml`.
+
+  New pages and assets stay outside those paths (assets live under
+  `/assets/`). Retiring or remapping v1 links remains a deliberate later
+  step.
 
 ### 2. `color.axioms.design` & `www.axioms.design`
 

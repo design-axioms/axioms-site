@@ -5,251 +5,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Axiomatic: tools for expressing the relationships behind color and layout."
+      content="Explore how Axiomatic Color and Layout carry a design through changes in light, color, and available space."
     />
     <title>Axiomatic — Color &amp; Layout</title>
     <link rel="canonical" href="https://axioms.design/" />
-    <style>
-      :root {
-        color-scheme: light dark;
-        --paper: light-dark(#fafbfd, #14171d);
-        --ink: light-dark(#202733, #edf0f7);
-        --muted: light-dark(#586475, #abb6c7);
-        --line: light-dark(#d7dfe9, #343d4a);
-        --blue: light-dark(#245a9e, #9ac3ff);
-        --wash: light-dark(#eaf0f8, #222d3d);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        background: var(--paper);
-        color: var(--ink);
-        font:
-          1rem/1.6 ui-sans-serif,
-          system-ui,
-          sans-serif;
-      }
-      main,
-      footer {
-        width: min(100% - 3rem, 67rem);
-        margin-inline: auto;
-      }
-      header {
-        padding-block: 4.5rem 3.5rem;
-      }
-      .brand {
-        margin: 0 0 2.5rem;
-        font-size: 1.125rem;
-        font-weight: 650;
-        letter-spacing: -0.025em;
-      }
-      h1 {
-        max-width: 16ch;
-        margin: 0;
-        font-size: clamp(2.5rem, 5.8vw, 4.75rem);
-        line-height: 1.08;
-        font-weight: 600;
-        letter-spacing: -0.055em;
-        text-wrap: balance;
-      }
-      .intro {
-        max-width: 42rem;
-        margin: 1.5rem 0 0;
-        color: var(--muted);
-        font-size: 1.2rem;
-        text-wrap: pretty;
-      }
-      .project {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 2rem 4rem;
-        padding-block: 2.75rem;
-        border-top: 1px solid var(--line);
-      }
-      .description {
-        flex: 1 1 25rem;
-      }
-      h2 {
-        margin: 0 0 0.5rem;
-        font-size: 1.75rem;
-        font-weight: 600;
-        letter-spacing: -0.035em;
-      }
-      .description p {
-        max-width: 40rem;
-        margin: 0 0 1.25rem;
-        color: var(--muted);
-        text-wrap: pretty;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem 1.75rem;
-      }
-      a {
-        color: var(--blue);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.3em;
-      }
-      a:hover {
-        text-decoration-thickness: 2px;
-      }
-      a:focus-visible {
-        outline: 2px solid var(--blue);
-        outline-offset: 5px;
-        border-radius: 2px;
-      }
-      .specimen {
-        flex: 0 1 17rem;
-        min-width: 0;
-        width: 100%;
-        padding: 1.25rem;
-        border: 1px solid var(--line);
-      }
-      .specimen-label {
-        margin: 0 0 1rem;
-        color: var(--muted);
-        font-size: 0.875rem;
-      }
-      .layout-lines {
-        display: grid;
-        gap: 1rem;
-      }
-      .layout-lines span {
-        display: block;
-        height: 0.5rem;
-        background: var(--blue);
-        opacity: 0.7;
-      }
-      .layout-lines > span {
-        width: 60%;
-      }
-      .layout-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 0.5rem;
-        padding: 0.75rem;
-        background: var(--wash);
-      }
-      .layout-group span {
-        opacity: 0.4;
-      }
-      .color-swatches {
-        display: flex;
-        gap: 0.5rem;
-      }
-      .color-swatches span {
-        flex: 1;
-        aspect-ratio: 1;
-        border: 1px solid var(--line);
-        background: var(--swatch);
-      }
-      footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 1rem;
-        border-top: 1px solid var(--line);
-        padding-block: 1.75rem 3rem;
-        color: var(--muted);
-        font-size: 0.875rem;
-      }
-      footer p {
-        margin: 0;
-      }
-      @media (max-width: 38rem) {
-        header {
-          padding-block: 2.5rem;
-        }
-        .brand {
-          margin-bottom: 2rem;
-        }
-        .project {
-          gap: 1.5rem;
-          padding-block: 2rem;
-        }
-        .specimen {
-          flex-basis: 100%;
-        }
-      }
-      @media (forced-colors: active) {
-        .layout-lines span {
-          background: CanvasText;
-        }
-        .color-swatches span {
-          border-color: CanvasText;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/color.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script type="module" src="/assets/site.js"></script>
   </head>
-  <body>
-    <main>
-      <header>
-        <p class="brand">Axiomatic</p>
-        <h1>Design from relationships.</h1>
-        <p class="intro">
-          Express what belongs together and what each part does. Explore tools
-          that carry those relationships through changes in color, content, and
-          space.
-        </p>
+  <body class="surface-page text-high">
+    <div class="page">
+      <header class="masthead">
+        <a href="/" class="wordmark" aria-label="Axiomatic home">Axiomatic</a>
+        <nav aria-label="Project guides">
+          <a href="https://layout.axioms.design/getting-started/index.html"
+            >Layout</a
+          >
+          <a href="https://color.axioms.design/">Color</a>
+        </nav>
       </header>
-      <section class="project" aria-labelledby="layout-title">
-        <div class="description">
-          <h2 id="layout-title">Layout</h2>
-          <p>
-            Compose groups that keep their meaning as their space changes. Learn
-            the primitives, experiment with arrangements, and build a
-            composition of your own.
+      <main>
+        <header class="intro">
+          <h1>Design from relationships.</h1>
+          <p class="text-strong">
+            Group actions by what belongs together. Choose text colors by the
+            surface they sit on. Try those relationships on one investigation.
           </p>
-          <nav aria-label="Axiomatic Layout">
-            <a href="https://layout.axioms.design/getting-started/index.html"
-              >Read the guide</a
+        </header>
+
+        <figure
+          class="specimen surface-workspace text-high hue-brand"
+          id="specimen"
+          aria-label="Interactive investigation"
+        >
+          <figcaption class="toolbar" hidden>
+            <span id="resize-hint"
+              >Drag the card’s edge to change its space.</span
             >
-            <a
-              href="https://layout.axioms.design/_media/documentation/playground/index.html"
-              >Open the playground</a
-            >
-          </nav>
-        </div>
-        <div class="specimen" aria-hidden="true">
-          <p class="specimen-label">A group within a composition</p>
-          <div class="layout-lines">
-            <span></span>
-            <div class="layout-group">
-              <span></span><span></span><span></span>
+            <div class="conditions">
+              <label
+                >Mode
+                <select id="mode">
+                  <option value="system">System</option>
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select></label
+              >
+              <label
+                >Atmosphere
+                <select id="atmosphere">
+                  <option value="hue-brand">Violet</option>
+                  <option value="hue-accent">Teal</option>
+                  <option value="">Neutral</option>
+                </select></label
+              >
+            </div>
+          </figcaption>
+          <div class="stage">
+            <div id="track">
+              <div id="track-width" aria-hidden="true"></div>
+              <div id="frame">
+                <article
+                  class="investigation surface-card text-high"
+                  aria-labelledby="case-title"
+                >
+                  <header class="card-header">
+                    <span class="eyebrow">Current investigation</span>
+                    <span id="width-label" aria-hidden="true"></span>
+                  </header>
+                  <h2 id="case-title">Bound the request-log query</h2>
+                  <p class="context text-strong">
+                    Request-log queries exceed the 30-second runtime budget.
+                  </p>
+                  <div class="action-slot">
+                    <nav
+                      id="actions"
+                      aria-label="Investigation actions"
+                      data-axiomatic="Switcher"
+                    >
+                      <a
+                        data-axiomatic-atom
+                        class="action primary surface-action text-high border-interactive"
+                        href="#session"
+                        >Open investigation session</a
+                      >
+                      <div data-axiomatic="Switcher">
+                        <a data-axiomatic-atom class="text-link" href="#runs"
+                          >Other runs</a
+                        >
+                        <a data-axiomatic-atom class="text-link" href="#alert"
+                          >Alert in Vercel</a
+                        >
+                        <button
+                          data-axiomatic-atom
+                          id="follow"
+                          class="action surface-action text-strong border-interactive"
+                          type="button"
+                          disabled
+                        >
+                          Follow investigation
+                        </button>
+                      </div>
+                    </nav>
+                  </div>
+                </article>
+                <button
+                  hidden
+                  id="grip"
+                  type="button"
+                  role="slider"
+                  aria-label="Investigation card width"
+                  aria-describedby="grip-help"
+                  aria-controls="frame"
+                  aria-valuemin="160"
+                  aria-valuemax="880"
+                  aria-valuenow="880"
+                  aria-orientation="horizontal"
+                ></button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="project" aria-labelledby="color-title">
-        <div class="description">
-          <h2 id="color-title">Color</h2>
-          <p>
-            Describe surfaces and the roles of the content on them. Explore a
-            color system built around contrast, context, and light and dark
-            appearances.
+          <p class="sr-only" id="grip-help">
+            Use Left and Right to resize, Shift for larger steps, or Home and
+            End for the limits.
           </p>
-          <nav aria-label="Axiomatic Color">
-            <a href="https://color.axioms.design/">Explore Axiomatic Color</a>
-          </nav>
+          <section
+            class="destination"
+            id="session"
+            aria-labelledby="session-title"
+            tabindex="-1"
+          >
+            <h3 id="session-title">Investigation session</h3>
+            <p>The remediation plan is to bound the request-log query.</p>
+            <button
+              type="button"
+              id="open-notes"
+              class="action surface-action text-high border-interactive"
+              disabled
+            >
+              Open investigation notes
+            </button>
+          </section>
+          <section
+            class="destination"
+            id="runs"
+            aria-labelledby="runs-title"
+            tabindex="-1"
+          >
+            <h3 id="runs-title">Other runs</h3>
+            <p>Three checks passed in the latest run.</p>
+          </section>
+          <section
+            class="destination"
+            id="alert"
+            aria-labelledby="alert-title"
+            tabindex="-1"
+          >
+            <h3 id="alert-title">Alert in Vercel</h3>
+            <p>
+              The request-log query exceeded its runtime budget. This is the
+              example alert for this investigation.
+            </p>
+          </section>
+          <dialog
+            id="notes-dialog"
+            aria-labelledby="notes-title"
+            class="surface-card text-high"
+          >
+            <form method="dialog">
+              <h3 id="notes-title">Investigation notes</h3>
+              <label for="notes">Your working note</label>
+              <textarea id="notes" rows="4" autofocus></textarea>
+              <button
+                class="action surface-action text-high border-interactive"
+              >
+                Done
+              </button>
+            </form>
+          </dialog>
+        </figure>
+        <noscript
+          ><p>
+            Enable JavaScript to resize the example, change its colors, follow
+            the investigation, or write a note.
+          </p></noscript
+        >
+
+        <div class="projects">
+          <section aria-labelledby="layout-title">
+            <h2 id="layout-title">Layout</h2>
+            <p class="text-strong">
+              The secondary actions can stay in a row after the group around
+              them breaks. Each group responds to the space its own members
+              need.
+            </p>
+            <nav aria-label="Axiomatic Layout">
+              <a href="https://layout.axioms.design/getting-started/index.html"
+                >Read the guide</a
+              ><a
+                href="https://layout.axioms.design/_media/documentation/playground/index.html"
+                >Open the playground</a
+              >
+            </nav>
+          </section>
+          <section aria-labelledby="color-title">
+            <h2 id="color-title">Color</h2>
+            <p class="text-strong">
+              The title, links, and controls each draw their color from the
+              surface beneath them. Their roles carry across changes in mode and
+              hue.
+            </p>
+            <nav aria-label="Axiomatic Color">
+              <a href="https://color.axioms.design/">Explore Axiomatic Color</a>
+            </nav>
+          </section>
         </div>
-        <div class="specimen" aria-hidden="true">
-          <p class="specimen-label">Surface, content, and emphasis</p>
-          <div class="color-swatches">
-            <span style="--swatch: var(--paper)"></span
-            ><span style="--swatch: var(--wash)"></span
-            ><span style="--swatch: var(--blue)"></span
-            ><span style="--swatch: var(--ink)"></span>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>Two explorations. A shared starting point.</p>
-      <a href="https://github.com/design-axioms">Follow the work on GitHub</a>
-    </footer>
+      </main>
+      <footer>
+        <a href="https://github.com/design-axioms">Axiomatic on GitHub</a
+        ><a href="https://www.axioms.design/">Color v1 archive</a>
+      </footer>
+    </div>
   </body>
 </html>

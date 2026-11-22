@@ -1,0 +1,279 @@
+{
+  "name": "Axiomatic Color: the @design-axioms/color package",
+  "repository": "https://github.com/design-axioms/axiomatic-color",
+  "revision": "43ed52b4d80cf340a16f99335f4d76025ab0779e",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "package/dist/browser-entry.d.ts",
+      "sha256": "3669d6b6fd3ad9af97a6130b5e2a9769acdfa0dc4a3dc129adeed43c4f78cc26"
+    },
+    {
+      "path": "package/dist/browser-entry.d.ts.map",
+      "sha256": "df7905179535052850750fd0821c7cc22407660318ae0cafa8c6dd3ac6780373"
+    },
+    {
+      "path": "package/dist/browser-entry.js",
+      "sha256": "02232467667bb43b4bb9d018a1aef69b1367af0d4cc21b453b87beefc472ee38"
+    },
+    {
+      "path": "package/dist/browser-entry.js.map",
+      "sha256": "47ea3d3bafb8a935b71a8fd6e50ea45ae229b16f5c57a5b73cad988e7f6a2eea"
+    },
+    {
+      "path": "package/dist/browser.d.ts",
+      "sha256": "9b93c5510dcb63e9c63f157771b2280784989b4cac95e4e9512befdd24e1e230"
+    },
+    {
+      "path": "package/dist/browser.d.ts.map",
+      "sha256": "212799c584709318ea5ce819d6fda726d3c657dd1d381f4328eccb80ca5a84dc"
+    },
+    {
+      "path": "package/dist/browser.js",
+      "sha256": "6b65f127a5dbbee4a90cda720eed5b69f85941bab2e6cff0edf654b838d5fdb0"
+    },
+    {
+      "path": "package/dist/browser.js.map",
+      "sha256": "1fb97bcb997adf15b03150553813db9ed72aacb6a59545a7ebc89e91c41b88e0"
+    },
+    {
+      "path": "package/dist/components/color-slider.d.ts",
+      "sha256": "f2b88d2c96febdaa751de735cad87d17c2a1ac6762f6def938e22bc3ff58a6b0"
+    },
+    {
+      "path": "package/dist/components/color-slider.d.ts.map",
+      "sha256": "e5e12b2fd2bdc6d860da9e6a1b98d82d2a531136c97e509c5115521d34331b43"
+    },
+    {
+      "path": "package/dist/components/color-slider.js",
+      "sha256": "378d7ef0182871c380ad30b2ec9af09211b5f5d9e6abf021ec7b4225f7de179a"
+    },
+    {
+      "path": "package/dist/components/color-slider.js.map",
+      "sha256": "c8d2ad982fc36ad2177939ac1569f8f8d482323509f4df93b806106e9ecf330a"
+    },
+    {
+      "path": "package/dist/defaults.d.ts",
+      "sha256": "ca46e69dc4d0c0bf13818c5ffee866c18746e59c0026d170fc0ecc6fd4a028e6"
+    },
+    {
+      "path": "package/dist/defaults.d.ts.map",
+      "sha256": "31ea1ceef5d57a3e9c184cf918bb8c3146d8cd1f05144f1d3d7d87078e59c4af"
+    },
+    {
+      "path": "package/dist/defaults.js",
+      "sha256": "8cce8f5b61db320b7f0ce6813959b27d4c07bd3587c6468de3b409a26bb0c0ee"
+    },
+    {
+      "path": "package/dist/defaults.js.map",
+      "sha256": "317958b5a7cd1379fa626e4133ddc5b980f5ce7636af3be77fdd7aba99a34d68"
+    },
+    {
+      "path": "package/dist/deriveHcScale.d.ts",
+      "sha256": "a1a1985a197df0ba93c73ff481ae5a55ecca32aa11bd428e5488a108f13f02a7"
+    },
+    {
+      "path": "package/dist/deriveHcScale.d.ts.map",
+      "sha256": "c3a740a295772af577bc61a2eed352447595e374ef45d5d7c7877c05c89fd465"
+    },
+    {
+      "path": "package/dist/deriveHcScale.js",
+      "sha256": "a434d2a367404271637b8b2d18de785d62283b514b89559430f6a8897ac4e8d3"
+    },
+    {
+      "path": "package/dist/deriveHcScale.js.map",
+      "sha256": "0fcd9c0417a26aaf77241d9a71647015d7dff3664b3846cc484f9e22a31cae80"
+    },
+    {
+      "path": "package/dist/generator/css.d.ts",
+      "sha256": "cba18b808f84deecd4c632c93f359c0aebe93fb44f58b7ff68f0be3c6107eac4"
+    },
+    {
+      "path": "package/dist/generator/css.d.ts.map",
+      "sha256": "1da5b7e0d17d8c18c1073edb721ece75b7b093591dde6163c71b34116fa9d8c5"
+    },
+    {
+      "path": "package/dist/generator/css.js",
+      "sha256": "0c2e7fa277ebba39cf27e3aabf9d6dec766640493fae58d96fd935af4638ac75"
+    },
+    {
+      "path": "package/dist/generator/css.js.map",
+      "sha256": "f05f62590258b28894e9fb4496e0cfaa6ab1367d0db61643c9a7c1e56cf30602"
+    },
+    {
+      "path": "package/dist/generator/html.d.ts",
+      "sha256": "a79ff9a533c158be4911b101dc28efd90fc7d7dc512c700f9bcd3831a124692c"
+    },
+    {
+      "path": "package/dist/generator/html.d.ts.map",
+      "sha256": "04a4ecd6572fe9bcf7382af7a73fb5a0deabf89b22ac53d3b2da8554ae1c5640"
+    },
+    {
+      "path": "package/dist/generator/html.js",
+      "sha256": "632f4cb94c2883fa5fdc8dac01066a800a9a2d6ec652e0bfdd785612c8621e42"
+    },
+    {
+      "path": "package/dist/generator/html.js.map",
+      "sha256": "54e95efa6bde30fa37c823102ef71cbb572d2acd3848f74b173701ee28ccea35"
+    },
+    {
+      "path": "package/dist/generator/index.d.ts",
+      "sha256": "30d8c8bb384c7b473c72d7649554cd0db718808a33ec0e382f9f6ecbe46d72d7"
+    },
+    {
+      "path": "package/dist/generator/index.d.ts.map",
+      "sha256": "e9d83cc04c9d652b72d5170eb30caa5a9ac48832c721ebb7912b21c3daa5a331"
+    },
+    {
+      "path": "package/dist/generator/index.js",
+      "sha256": "f8446f3ba13f6c9f05ae9784db9f5ea180d3b8c0c81066311fed11821d09b9ef"
+    },
+    {
+      "path": "package/dist/generator/index.js.map",
+      "sha256": "c17515fbe82d630a618b24853678130ed04a1dbc1ff559805241d417a9cd69f7"
+    },
+    {
+      "path": "package/dist/index.d.ts",
+      "sha256": "fd6b4524e5973d84bdd164769ea27ef06506399bb5a9e3aa0387b56bb620ec49"
+    },
+    {
+      "path": "package/dist/index.d.ts.map",
+      "sha256": "cfe1727dd77f3602629ba9c06224744158fcddbd0eee5a12c4881be4f595a2b8"
+    },
+    {
+      "path": "package/dist/index.js",
+      "sha256": "883498d851e0e5975ce57f34f92807ce46eeb41b0fbac60ed0139acd613c37ca"
+    },
+    {
+      "path": "package/dist/index.js.map",
+      "sha256": "395049684825646e48e0376de703bde6cad8b7f7f10843ec8db8f461dcc88c75"
+    },
+    {
+      "path": "package/dist/math.d.ts",
+      "sha256": "60235eb7ca4842e85612b073bc9db021cb01f0dcca5a4467cede16ff71e043ba"
+    },
+    {
+      "path": "package/dist/math.d.ts.map",
+      "sha256": "d041139d85231e268c87207beaf04ada5c1e5c7f1e0ea1040026342b920f0e33"
+    },
+    {
+      "path": "package/dist/math.js",
+      "sha256": "690ab05b89e3308e5feb69e8a599f0b479d94673922be459d337e8fb721bea55"
+    },
+    {
+      "path": "package/dist/math.js.map",
+      "sha256": "045e3d7ad65982cecea8772532e44855a17f908c2b1b5c71714085dadc890994"
+    },
+    {
+      "path": "package/dist/runtime.d.ts",
+      "sha256": "729fce73724708d995f4726367d72f5702e711626da6bcc84e97583c236601e6"
+    },
+    {
+      "path": "package/dist/runtime.d.ts.map",
+      "sha256": "412c1e44b32c5c23afb25bc700c503054a49e5e912f4a258ca16f5b663ce0cb7"
+    },
+    {
+      "path": "package/dist/runtime.js",
+      "sha256": "1c32d9853e6c4e829cf62dd2517f94ce4dda32cb713f339775a820713922c08c"
+    },
+    {
+      "path": "package/dist/runtime.js.map",
+      "sha256": "05d4603b131d9ef04fd7825412a21a98094879a404a7b9036f66130b452888f0"
+    },
+    {
+      "path": "package/dist/solver/index.d.ts",
+      "sha256": "d21f76680f7f456c984219f40a12247da9a747a5529fcda1c2895b87c049726b"
+    },
+    {
+      "path": "package/dist/solver/index.d.ts.map",
+      "sha256": "cb3945e865352b8aa00da422eb9c56e7a3c36693cc2389eb9f8aa4a9b2b748e6"
+    },
+    {
+      "path": "package/dist/solver/index.js",
+      "sha256": "7084164375bd9c2667e2dbff404ad0eaba835fa018341458c8906dadcd9aeede"
+    },
+    {
+      "path": "package/dist/solver/index.js.map",
+      "sha256": "9a258994524d05f1b1fef3338c61b91473713aaf0b82eda861b91404b1502f09"
+    },
+    {
+      "path": "package/dist/solver/planner.d.ts",
+      "sha256": "ac67bb500bd3effea36ccfb224fee9fcd7715e853649342d3cb140f8b8431bda"
+    },
+    {
+      "path": "package/dist/solver/planner.d.ts.map",
+      "sha256": "f3cf8e53af31a6f0aa59cf4ca0b555753282274afd72d514aa219deffb64a47a"
+    },
+    {
+      "path": "package/dist/solver/planner.js",
+      "sha256": "d390c063ceb594675f8fedda022bae30920dd2f170122c3f0429d3496cc38589"
+    },
+    {
+      "path": "package/dist/solver/planner.js.map",
+      "sha256": "bdcc613ca01cd453011d5cf3774dc1cc9b25543846e4c451fa35b3edc2682f0c"
+    },
+    {
+      "path": "package/dist/solver/solver.test.d.ts",
+      "sha256": "f0e7b89928c457d61dbaa73512fcef8429e046f368b376914c09fb6c2c3ca027"
+    },
+    {
+      "path": "package/dist/solver/solver.test.d.ts.map",
+      "sha256": "298a992514dfd56a9384f3deefc9b9f74c84056865f3dd063aff14c05fec0831"
+    },
+    {
+      "path": "package/dist/solver/solver.test.js",
+      "sha256": "be864c2ec290220b5f6cfb2ca08c9b14a322c8feff7a3a9182ca99765dcfc8b3"
+    },
+    {
+      "path": "package/dist/solver/solver.test.js.map",
+      "sha256": "204d1452637deadfc4c09bfaffba6865a05ffa29472ed4c3f7afcf4bc2e73487"
+    },
+    {
+      "path": "package/dist/solver/validator.d.ts",
+      "sha256": "1b0a156cf27adafcdbf685d3c3a0c96205b4a68a4a284a92cdbe05c82dd05765"
+    },
+    {
+      "path": "package/dist/solver/validator.d.ts.map",
+      "sha256": "1d3a414b3a9ee4a26183702b41b35fb91d65b629192ee6b7e27ebcea03eaacef"
+    },
+    {
+      "path": "package/dist/solver/validator.js",
+      "sha256": "4cd458a0af24ffaa98068151d722911b1ba991daf087033968da25ce0bde83d4"
+    },
+    {
+      "path": "package/dist/solver/validator.js.map",
+      "sha256": "ebef6ed3ccfd32bedcf2a0f0c7e7d44ad776548c921e28e6b1ba4c0064695981"
+    },
+    {
+      "path": "package/dist/types.d.ts",
+      "sha256": "52875d64405a579c365e7af60db05afc86bad927c221b7e79e5624e0ee2548ab"
+    },
+    {
+      "path": "package/dist/types.d.ts.map",
+      "sha256": "54d5e68841f4928bcc6a6a590d03521ad0bd24e232ac4ae1f4bd80a573d64f93"
+    },
+    {
+      "path": "package/dist/types.js",
+      "sha256": "d285e26d5d3c99566e34ecea572b617efa49e542a34b0c46dee9531729afbcc2"
+    },
+    {
+      "path": "package/dist/types.js.map",
+      "sha256": "d4a6dfeb764e29eeebefa49dc3e5b751d6808ef2802d7efc6446c01d54bf6407"
+    },
+    {
+      "path": "package/package.json",
+      "sha256": "22362d5a892d60ad75731cdef4b3f8c28b1241f3e99e769fbadc4166aaadfc61"
+    }
+  ],
+  "artifact": {
+    "file": "design-axioms-color-0.1.0.tgz",
+    "sha256": "bb4e675880e311c75a8b2268817a5a704938668ea8e1d751c49c5df0af3b1b4a",
+    "package": "@design-axioms/color",
+    "version": "0.1.0",
+    "builtWith": {
+      "node": "v24.22.3",
+      "pnpm": "10.6.5",
+      "typescript": "Version 5.9.3"
+    }
+  }
+}

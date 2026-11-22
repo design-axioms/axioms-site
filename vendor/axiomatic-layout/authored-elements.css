@@ -1,0 +1,44 @@
+/* Authored elements: what `authored-elements.ts` needs beyond the group
+   geometry in `primitives.css`. Load both in the same scope; neither depends
+   on the other's order. Nothing here names a kind of content or sets type. */
+
+/* An atom's width is its own. It does not shrink, wrap or stretch, so its
+   border box is the same in a row and in a column, and a Switcher can be
+   decided from it. In a row it sits on the row's baseline; across a column
+   `baseline` is `flex-start`, which is what keeps it from stretching.
+
+   These declarations, and the margin below, are the contract the Switcher's
+   sum relies on. They have ordinary specificity. Application CSS that
+   overrides one of them is outside the contract, and nothing reports it. */
+[data-axiomatic-atom] {
+  flex: none;
+  align-self: baseline;
+  white-space: nowrap;
+}
+/* `primitives.css` gives every group a display, which would otherwise win
+   over the browser's own rule for `hidden`. */
+[data-axiomatic-level][hidden] {
+  display: none;
+}
+/* Separation between members is the group's gap, and nothing else. */
+[data-axiomatic-level] > :is([data-axiomatic-atom], [data-axiomatic-level]) {
+  margin: 0;
+}
+
+/* The ruler: a row of two empty boxes with the group's own column gap, so
+   its width is the separation that group's row uses, whatever set it. The
+   holder contains it, as the requirement holder in `primitives.css` contains
+   its copy: nothing inside can become scrollable extent. The row is 1px tall
+   so that a rendered group never reports 0x0. */
+[data-axiomatic-mechanical="ruler"] {
+  inline-size: 0;
+  block-size: 0;
+  contain: strict;
+  column-gap: inherit;
+}
+[data-axiomatic-mechanical="ruler"] > * {
+  display: flex;
+  inline-size: max-content;
+  block-size: 1px;
+  column-gap: inherit;
+}

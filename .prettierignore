@@ -1,0 +1,3 @@
+# Recorded test data and the lockfile are not authored here.
+tests/legacy-pages.json
+pnpm-lock.yaml
