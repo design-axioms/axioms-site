@@ -1,0 +1,41 @@
+{
+  "color": {
+    "repository": "https://github.com/design-axioms/axiomatic-color",
+    "commit": "c260cf4eef9a6b8a81f51aadb35866a17e2de4f5",
+    "dirty": false,
+    "package": "@design-axioms/color",
+    "file": "vendor/design-axioms-color-0.1.0.tgz",
+    "sha256": "7234fbea31faf979fbc8fc6aca1e3e666c31d06bf9d7e53583cb2954c250d0d9"
+  },
+  "layout": {
+    "repository": "https://github.com/design-axioms/axiomatic-layout",
+    "commit": "1e06846cd5b94c4c070032d31adb54b1a219e526",
+    "dirty": false,
+    "files": {
+      "vendor/axiomatic-layout/composition.ts": {
+        "sourcePath": "documentation/components/source/composition.ts",
+        "sha256": "4c8f5917637785f4a3728264219e9ec51bcec303adad393bd3f7aeb573eea0cb"
+      },
+      "vendor/axiomatic-layout/primitives.ts": {
+        "sourcePath": "documentation/components/source/primitives.ts",
+        "sha256": "b297951a34af26d3d786114195e7afb3bf7800ad778204f11a4542490790333c"
+      },
+      "vendor/axiomatic-layout/primitives.css": {
+        "sourcePath": "documentation/components/source/primitives.css",
+        "sha256": "9b672a4857a507197c4ac5cee04b75bb73e182440fbc56860547eb2f742670ea"
+      },
+      "vendor/axiomatic-layout/switcher-coordinator.ts": {
+        "sourcePath": "documentation/components/source/switcher-coordinator.ts",
+        "sha256": "9f8941985e9229f655a4667baeeabb31f4d38ef4dae07980525317ea54fa7bf3"
+      },
+      "vendor/axiomatic-layout/authored-elements.ts": {
+        "sourcePath": "documentation/components/source/authored-elements.ts",
+        "sha256": "695d77202ebd1fe46b1457c8775f81cb3ed17cd943ba3b9ff26366340b9366cd"
+      },
+      "vendor/axiomatic-layout/authored-elements.css": {
+        "sourcePath": "documentation/components/source/authored-elements.css",
+        "sha256": "882fb7e252ea0d4e227701d7c1b12f7871576205fec09c48c47b1ee838051a54"
+      }
+    }
+  }
+}

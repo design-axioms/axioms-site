@@ -8,17 +8,44 @@ the relationship-first design model and linking to Axiomatic Layout
 Read [the website architecture plan](docs/WEBSITE-PLAN.md) for the roadmap
 across `axioms.design`, Color, Layout, and the sequenced `ts-docs` follow-up.
 
-## Local preview & validation
+## Local development & validation
 
-Use Node 24 (see `.node-version`):
+Use Node 24 and pnpm 10 (see `.node-version` and `package.json`):
 
 ```sh
-node scripts/validate.mjs
-python3 -m http.server 8789 --bind 127.0.0.1 --directory public
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-Published static files live under `public/` so repository documentation
-(`README.md`, `CONTRIBUTING.md`, `docs/`) stays outside the web root.
+Run all checks locally:
+
+```sh
+pnpm check
+pnpm build
+pnpm validate
+```
+
+Static build output is written to `dist/`, keeping repository documentation
+(`README.md`, `CONTRIBUTING.md`, `docs/`) outside the web root.
+
+## Pinned Color & Layout snapshots
+
+This repository builds standalone in CI and on Vercel without requiring sibling
+checkouts:
+
+- `@design-axioms/color` is installed from its pinned tarball under `vendor/`.
+- Layout's bare primitive runtime and `authored-elements` adapter are vendored
+  under `vendor/axiomatic-layout/`.
+- `vendor/provenance.json` records the source repository, commit SHA, and
+  SHA-256 hash of every vendored file, verified by `pnpm validate`.
+
+To refresh snapshots intentionally from sibling `../color` and `../layout`
+checkouts, build `../color` first and run:
+
+```sh
+pnpm vendor:sync
+pnpm install
+```
 
 ## Publish the static site
 
@@ -26,7 +53,7 @@ Deploy this repository to the dedicated `axioms-site` project in
 `yehuda-katzs-projects`, after review and approval:
 
 ```sh
-node scripts/validate.mjs
+pnpm check && pnpm build && pnpm validate
 vercel deploy --prod --yes --scope yehuda-katzs-projects --project axioms-site
 ```
 
@@ -40,11 +67,11 @@ automatically. The Layout and Color projects keep their own deployments.
 - Preserve `www.axioms.design` (or a dedicated `v1.color.axioms.design` archive)
   for legacy Color v1 links until a deliberate retirement/redirect pass is
   prepared.
-- `vercel.json` currently redirects non-root apex requests (`/:path(.+)`) to
-  `www.axioms.design`. Because Vercel evaluates `redirects` before static files,
-  narrow that catch-all to legacy Color v1 prefixes before publishing secondary
-  pages or external assets under `public/` (see
-  [docs/WEBSITE-PLAN.md](docs/WEBSITE-PLAN.md)).
+- `vercel.json` redirects legacy Color v1 prefixes (`/concepts/*`, `/guides/*`,
+  `/theory/*`, `/catalog/*`, `/advanced/*`, `/reference/*`, `/why-axiomatic`,
+  `/philosophy`, `/alpha-limitations`, `/llms.txt`, `/llms-full.txt`) to
+  `https://www.axioms.design/`, while leaving `/`, `/assets/*`, and future
+  secondary pages free to serve from `dist/`.
 - The original Color domain assignment was `axioms.design` redirecting to
   `www.axioms.design` on Vercel project `color-site`. Record any changed domain
   assignment and rollback plan before altering apex or subdomain bindings.

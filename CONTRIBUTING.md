@@ -9,17 +9,20 @@ Create a branch from the latest `main` (agent branches use `wycats/`), make a
 focused change, and open a ready pull request. Explain why it matters and what
 evidence supports the resulting behavior.
 
-Use the Node version in `.node-version`:
+Use Node 24 and pnpm 10 (see `.node-version` and `package.json`):
 
 ```sh
-node scripts/validate.mjs
+pnpm install --frozen-lockfile
+pnpm check
+pnpm build
+pnpm validate
 ```
 
-The `CI` workflow runs this check on every PR. Its `Validate` check is required
-by the active `main` ruleset. The PR must be up to date with `main`, and review
-conversations must be resolved. Direct pushes, branch deletion, and force pushes
-are blocked; no actors have a bypass. GitHub Actions is the required check's
-source.
+The `CI` workflow runs these checks on every PR. Its `Validate` check is
+required by the active `main` ruleset. The PR must be up to date with `main`,
+and review conversations must be resolved. Direct pushes, branch deletion, and
+force pushes are blocked; no actors have a bypass. GitHub Actions is the
+required check's source.
 
 Request Codex review and address its findings before merging. Agent-authored
 review threads may be resolved after the issue is conclusively fixed. Obtain
@@ -31,6 +34,6 @@ Production deployment remains an explicit CLI action using the procedure in
 [README.md](README.md#publish-the-static-site). PR checks do not hold deployment
 credentials or publish the site.
 
-Before adding secondary pages or external assets under `public/`, narrow
-`vercel.json`'s catch-all `/:path(.+)` redirect to legacy Color v1 prefixes and
-verify both new routes and legacy redirects against a preview or local check.
+Keep `vercel.json`'s legacy Color v1 redirects intact and non-permanent until
+legacy v1 link retirement is explicitly approved, and verify both new routes and
+legacy redirects whenever `vercel.json` changes.

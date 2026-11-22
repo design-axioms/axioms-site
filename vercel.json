@@ -1,13 +1,78 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": "public",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "/:path(.+)",
-      "destination": "https://www.axioms.design/:path*",
+      "source": "/concepts/:path*",
+      "destination": "https://www.axioms.design/concepts/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/guides/:path*",
+      "destination": "https://www.axioms.design/guides/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/theory/:path*",
+      "destination": "https://www.axioms.design/theory/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/catalog/:path*",
+      "destination": "https://www.axioms.design/catalog/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/advanced/:path*",
+      "destination": "https://www.axioms.design/advanced/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/reference/:path*",
+      "destination": "https://www.axioms.design/reference/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/why-axiomatic",
+      "destination": "https://www.axioms.design/why-axiomatic",
+      "permanent": false
+    },
+    {
+      "source": "/why-axiomatic/",
+      "destination": "https://www.axioms.design/why-axiomatic/",
+      "permanent": false
+    },
+    {
+      "source": "/philosophy",
+      "destination": "https://www.axioms.design/philosophy",
+      "permanent": false
+    },
+    {
+      "source": "/philosophy/",
+      "destination": "https://www.axioms.design/philosophy/",
+      "permanent": false
+    },
+    {
+      "source": "/alpha-limitations",
+      "destination": "https://www.axioms.design/alpha-limitations",
+      "permanent": false
+    },
+    {
+      "source": "/alpha-limitations/",
+      "destination": "https://www.axioms.design/alpha-limitations/",
+      "permanent": false
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "https://www.axioms.design/llms.txt",
+      "permanent": false
+    },
+    {
+      "source": "/llms-full.txt",
+      "destination": "https://www.axioms.design/llms-full.txt",
       "permanent": false
     }
   ]
