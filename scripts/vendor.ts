@@ -149,7 +149,9 @@ export function vendorProblems(
     else {
       if (sha256(fs.readFileSync(tarball)) !== color.artifact.sha256)
         problems.push(`Color: ${color.artifact.file} differs from its record`);
-      if (JSON.stringify(tarballFiles(tarball)) !== JSON.stringify(color.files))
+      else if (
+        JSON.stringify(tarballFiles(tarball)) !== JSON.stringify(color.files)
+      )
         problems.push(`Color: the tarball's contents differ from its record`);
     }
     for (const name of fs.readdirSync(colorDirectory))

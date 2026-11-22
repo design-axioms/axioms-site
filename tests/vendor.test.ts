@@ -66,7 +66,7 @@ test("a different Color tarball is reported", () => {
     const tarball = fs
       .readdirSync(directory)
       .find((name) => name.endsWith(".tgz"))!;
-    fs.appendFileSync(path.join(directory, tarball), "x");
+    fs.writeFileSync(path.join(directory, tarball), "damaged package");
   });
   assert.match(problems.join("\n"), /\.tgz differs from its record/);
 });
