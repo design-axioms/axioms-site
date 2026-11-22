@@ -1,12 +1,82 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": "public",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "/:path(.+)",
+      "source": "/:path(concepts(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(guides(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(theory(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(catalog(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(advanced(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(reference(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(studio(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(hud(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(why-axiomatic(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(philosophy(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(alpha-limitations(?:/.*)?)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(llms\\.txt)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(llms-full\\.txt)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(sitemap-index\\.xml)",
+      "destination": "https://www.axioms.design/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path(sitemap-0\\.xml)",
       "destination": "https://www.axioms.design/:path*",
       "permanent": false
     }

@@ -1,0 +1,24 @@
+{
+  "name": "Axiomatic Layout: authored-element adapter and shared Switcher coordinator",
+  "repository": "https://github.com/design-axioms/axiomatic-layout",
+  "revision": "1e06846cd5b94c4c070032d31adb54b1a219e526",
+  "license": "None declared upstream at this revision. Same organization; see vendor/README.md",
+  "files": [
+    {
+      "path": "documentation/components/source/authored-elements.ts",
+      "sha256": "695d77202ebd1fe46b1457c8775f81cb3ed17cd943ba3b9ff26366340b9366cd"
+    },
+    {
+      "path": "documentation/components/source/authored-elements.css",
+      "sha256": "882fb7e252ea0d4e227701d7c1b12f7871576205fec09c48c47b1ee838051a54"
+    },
+    {
+      "path": "documentation/components/source/primitives.css",
+      "sha256": "9b672a4857a507197c4ac5cee04b75bb73e182440fbc56860547eb2f742670ea"
+    },
+    {
+      "path": "documentation/components/source/switcher-coordinator.ts",
+      "sha256": "9f8941985e9229f655a4667baeeabb31f4d38ef4dae07980525317ea54fa7bf3"
+    }
+  ]
+}

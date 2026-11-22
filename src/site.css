@@ -1,0 +1,354 @@
+@import "../vendor/axiomatic-layout/primitives.css";
+@import "../vendor/axiomatic-layout/authored-elements.css";
+
+:root {
+  color-scheme: light dark;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  scrollbar-gutter: stable;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+figure,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+}
+button,
+select,
+textarea {
+  font: inherit;
+}
+button:enabled,
+select {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+}
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+[hidden] {
+  display: none !important;
+}
+
+.page {
+  inline-size: min(calc(100% - clamp(2rem, 8vw, 8rem)), 66rem);
+  margin-inline: auto;
+}
+.masthead,
+footer,
+nav:not([data-axiomatic]),
+.toolbar,
+.conditions,
+.card-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.masthead,
+footer,
+.toolbar,
+.card-header {
+  justify-content: space-between;
+  gap: 0.75rem 1.75rem;
+}
+.masthead {
+  padding-block: 1.25rem;
+  border-block-end: 1px solid var(--axm-border-decorative);
+}
+.wordmark {
+  font:
+    600 1.4rem/1.15 Georgia,
+    serif;
+  letter-spacing: -0.055em;
+  text-decoration: none;
+}
+.masthead nav,
+.projects nav {
+  gap: 0.6rem 1.35rem;
+}
+.masthead nav,
+footer {
+  font-size: 0.875rem;
+}
+.masthead nav a,
+footer a {
+  text-decoration: none;
+}
+.masthead a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+.intro {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) 2rem;
+}
+.intro h1 {
+  font:
+    500 clamp(2.7rem, 6.4vw, 5.25rem)/1.02 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+.intro p {
+  max-inline-size: 57ch;
+  margin-block-start: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-wrap: pretty;
+}
+
+.specimen {
+  /* Color supplies the inset edge on the workspace and card surfaces. */
+  border-radius: 0.65rem;
+  /* A mode change updates foreground and background in the same paint. */
+  transition: none;
+}
+.specimen :is(.surface-card, .surface-action) {
+  transition: none;
+}
+.toolbar {
+  padding: 0.8rem clamp(1rem, 3vw, 1.6rem);
+  border-block-end: 1px solid var(--axm-border-decorative);
+  font-size: 0.875rem;
+}
+.conditions {
+  gap: 0.5rem 1rem;
+}
+.conditions label {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  font-size: 0.8125rem;
+}
+.conditions select {
+  min-block-size: 2rem;
+  border: 1px solid var(--axm-border-interactive);
+  border-radius: 0.35rem;
+  background: var(--axm-surface);
+  color: var(--axm-text-high);
+  padding-inline: 0.35rem;
+}
+.stage {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+#track {
+  min-inline-size: 0;
+  /* Tick marks keep the original scale visible as the card edge moves. */
+  padding-block-start: 0.85rem;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--axm-border-decorative) 0 1px,
+    transparent 1px 8px
+  );
+  background-size: 100% 0.3rem;
+  background-repeat: no-repeat;
+}
+#track-width {
+  block-size: 0;
+}
+#frame {
+  position: relative;
+  container-type: inline-size;
+  inline-size: min(100%, var(--card-width, 55rem));
+}
+.investigation {
+  padding: clamp(1rem, 4cqi, 2rem);
+  border-radius: 0.4rem;
+  min-inline-size: 0;
+}
+.card-header {
+  align-items: baseline;
+  gap: 0.3rem 0.65rem;
+}
+.eyebrow,
+#width-label {
+  font:
+    500 0.74rem/1.4 ui-monospace,
+    monospace;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+#width-label {
+  font-variant-numeric: tabular-nums;
+}
+.investigation h2 {
+  font-size: clamp(1.4rem, 4cqi, 2.05rem);
+  margin-block: 1.35rem 0.25rem;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+.context {
+  font-size: 0.96rem;
+  overflow-wrap: anywhere;
+}
+.action-slot {
+  margin-block-start: 1.6rem;
+  border-block-start: 1px solid var(--axm-border-decorative);
+  overflow-x: auto;
+  padding: 1.1rem 0.35rem 0.35rem;
+  margin-inline: -0.35rem;
+}
+#actions {
+  font-size: 0.9rem;
+  --axiomatic-space: 0.75rem;
+}
+#actions:not([data-axiomatic-level]),
+#actions > div[data-axiomatic]:not([data-axiomatic-level]) {
+  display: grid;
+  justify-items: start;
+  gap: 0.65rem;
+}
+.action {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: none;
+  border-radius: 0.35rem;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.75rem;
+  text-decoration: none;
+  line-height: 1.35;
+}
+.action:not(:disabled):hover,
+.action:focus-visible {
+  text-decoration: underline;
+}
+.primary {
+  font-weight: 650;
+}
+button.action:disabled {
+  color: var(--axm-text-subtlest);
+  border-style: dashed;
+  pointer-events: none;
+}
+#grip {
+  position: absolute;
+  inset-inline-end: -0.875rem;
+  inset-block: 0;
+  inline-size: 1.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--axm-text-strong);
+  touch-action: none;
+  cursor: ew-resize;
+  border-radius: 0.3rem;
+}
+#grip::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset-inline-start: calc(50% - 3px);
+  inset-block-start: calc(50% - 0.8rem);
+  inline-size: 6px;
+  block-size: 1.6rem;
+  border-inline: 2px solid currentColor;
+}
+#grip:is(:focus-visible, :hover)::before {
+  color: var(--axm-text-high);
+}
+#grip:focus-visible {
+  outline: none;
+}
+#grip:focus-visible::before {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.destination {
+  display: none;
+  border-block-start: 1px solid var(--axm-border-decorative);
+  padding: 1.25rem clamp(1rem, 3vw, 2rem);
+}
+.destination:target {
+  display: block;
+}
+.destination p {
+  margin-block: 0.25rem 0.65rem;
+}
+.destination:focus {
+  outline-offset: -3px;
+}
+dialog {
+  box-shadow: none;
+  inline-size: min(28rem, calc(100% - 2rem));
+  border: 1px solid var(--axm-border-interactive);
+  border-radius: 0.6rem;
+  padding: 1.5rem;
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+dialog form {
+  display: grid;
+  gap: 0.75rem;
+}
+dialog h3 {
+  font-size: 1.3rem;
+}
+dialog label {
+  font-size: 0.875rem;
+}
+dialog textarea {
+  inline-size: 100%;
+  resize: vertical;
+  border: 1px solid var(--axm-border-interactive);
+  border-radius: 0.28rem;
+  padding: 0.65rem;
+}
+dialog button {
+  justify-self: end;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 2rem 4rem;
+  padding-block: 2.4rem 3rem;
+}
+.projects h2 {
+  font:
+    500 2rem/1.1 Georgia,
+    serif;
+  letter-spacing: -0.045em;
+}
+.projects p {
+  margin-block: 0.65rem 0.85rem;
+  max-inline-size: 46ch;
+}
+.projects nav {
+  font-size: 0.9rem;
+}
+footer {
+  border-block-start: 1px solid var(--axm-border-decorative);
+  padding-block: 1.1rem 2rem;
+}
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (forced-colors: active) {
+  .specimen,
+  .investigation {
+    border: 1px solid CanvasText;
+  }
+  #grip::before {
+    border-color: ButtonText;
+  }
+}
