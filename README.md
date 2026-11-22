@@ -38,18 +38,20 @@ locally, and an asset that a rule would capture is missing locally too.
 
 ## Publish the static site
 
-Deploy this repository to the dedicated `axioms-site` project in
-`yehuda-katzs-projects`, after review and approval:
+Merging a pull request into `main` publishes the shared homepage. The Vercel
+project `yehuda-katzs-projects/axioms-site` is connected to this repository
+with `main` as its production branch. Vercel installs the frozen lockfile,
+runs `pnpm build`, and assigns `axioms.design` to the successful build.
+
+Vercel reports production deployments to GitHub. On a successful production
+status, the [Site checks workflow](.github/workflows/site-checks.yml) exercises
+the investigation on the public domain in Chromium, Firefox and WebKit and
+checks the legacy Color redirects. A failed check appears in GitHub Actions.
+You can rerun the workflow manually or check the live release locally:
 
 ```sh
-pnpm verify
-vercel deploy --prod --yes --scope yehuda-katzs-projects --project axioms-site
+AXIOMS_SITE_URL=https://axioms.design pnpm test:browser
 ```
-
-Vercel installs with the frozen lockfile, runs `pnpm build` and publishes
-`dist/`, as `vercel.json` says. Deployment is explicit through the CLI;
-GitHub checks do not deploy automatically. The Layout and Color projects
-keep their own deployments.
 
 ### Domain & link-preservation commitments
 
