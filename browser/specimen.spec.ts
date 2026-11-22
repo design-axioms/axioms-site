@@ -50,12 +50,20 @@ test("the same investigation survives width, mode, and atmosphere changes", asyn
   await note.fill("Bound the query to this run.");
   await page.keyboard.press("Escape");
   await expect(open).toBeFocused();
-  await page
-    .getByRole("combobox", { name: "Mode", exact: true })
-    .selectOption("dark");
+  const mode = page.getByRole("combobox", { name: "Mode", exact: true });
+  const cardColor = () =>
+    page
+      .getByRole("article")
+      .evaluate((card) => getComputedStyle(card).backgroundColor);
+  await mode.selectOption("light");
+  const lightViolet = await cardColor();
+  await mode.selectOption("dark");
+  await expect.poll(cardColor).not.toBe(lightViolet);
+  const darkViolet = await cardColor();
   await page
     .getByRole("combobox", { name: "Atmosphere", exact: true })
     .selectOption({ label: "Teal" });
+  await expect.poll(cardColor).not.toBe(darkViolet);
   await expect(following).toBeVisible();
   for (const [i, node] of original.entries()) {
     expect(

@@ -50,9 +50,10 @@ Yehuda's approval before merging.
 
 ## Deployment & routing safety
 
-Production deployment remains an explicit CLI action using the procedure in
-[README.md](README.md#publish-the-static-site). PR checks do not hold deployment
-credentials or publish the site.
+Vercel publishes the protected `main` branch when a PR merges. Site checks run
+against a local build on PRs and against the public domain after Vercel
+reports a successful production deployment to GitHub. See [the release
+workflow](README.md#publish-the-static-site) to rerun the hosted checks.
 
 The apex forwards the earlier Color site's paths to `www.axioms.design`;
 [README.md](README.md#domain--link-preservation-commitments) lists them.
