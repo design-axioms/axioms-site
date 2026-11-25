@@ -41,7 +41,7 @@ packages:
     engines: {node: '>=24'}
 
   '@design-axioms/layout@file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz':
-    resolution: {integrity: sha512-7hrPy5WnIKENhRNKX+jb12FpoO+olJXREo2WEg6WBHtAYBOrXsHSYRKSyJT/4vm9Mim+I2uJpTGbFNuP8PceRw==, tarball: file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz}
+    resolution: {integrity: sha512-21fLsyilnhcfUrlQhRPXebw2lD+MTev/9RHJquDPrUG+WaETZkciLYbrfVMklsz7JGrTTXcNmkicXl9JQDL/cw==, tarball: file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz}
     version: 0.0.0-local.0
 
   '@esbuild/aix-ppc64@0.28.2':

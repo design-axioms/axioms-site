@@ -1,20 +1,20 @@
 {
   "name": "Axiomatic Layout: authored-element adapter and shared Switcher coordinator",
   "repository": "https://github.com/design-axioms/axiomatic-layout",
-  "revision": "37b8b181dd934a58a985b1ff7b4f12cf8805b6c8",
+  "revision": "87d7b5161b9c3b5f7c82ee53c6be9854a13bf87b",
   "license": "None declared upstream at this revision. Same organization; see vendor/README.md",
   "files": [
     {
       "path": "package/README.md",
-      "sha256": "8fc7ef815fa87416dc47ddc9c31e53008c9d8a741fecbd8b779395879e7cd6b7"
-    },
-    {
-      "path": "package/dist/index.d.ts",
-      "sha256": "56bd3f1967100a7fca95212b9e494e23f1cea1f3a483c0ec5e7d12fb2175de1d"
+      "sha256": "c2481031108b1f6d9c7157d2e1350d692ab478ec9593ba386fe7562e12e23a4a"
     },
     {
       "path": "package/dist/index.js",
       "sha256": "5f4ca36b42c070346446d44356cac9823d9e9b70ea6dcb68773a1aa1982da0ed"
+    },
+    {
+      "path": "package/dist/packages/layout/index.d.ts",
+      "sha256": "56bd3f1967100a7fca95212b9e494e23f1cea1f3a483c0ec5e7d12fb2175de1d"
     },
     {
       "path": "package/dist/style.css",
@@ -22,7 +22,7 @@
     },
     {
       "path": "package/package.json",
-      "sha256": "8cc314656e58f2872b19765a8983c7a42c1a92bff65659be638c93467b6b0b4b"
+      "sha256": "f8ddde6d7c49fe01eb8885154d434cee58eedd37c296b16cba09b4441be0837b"
     },
     {
       "path": "package/style.d.css.ts",
@@ -31,7 +31,7 @@
   ],
   "artifact": {
     "file": "design-axioms-layout-0.0.0-local.0.tgz",
-    "sha256": "286a19c6519c01a2deb4d25d56e9da6b2f4ae02f30068128d78016d9f850065b",
+    "sha256": "63b347599f91b23daf18938d89a961aa89f56c36d497742f312fd1f314d77658",
     "package": "@design-axioms/layout",
     "version": "0.0.0-local.0",
     "builtWith": {
