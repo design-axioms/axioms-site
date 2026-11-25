@@ -1,24 +1,43 @@
 {
   "name": "Axiomatic Layout: authored-element adapter and shared Switcher coordinator",
   "repository": "https://github.com/design-axioms/axiomatic-layout",
-  "revision": "1e06846cd5b94c4c070032d31adb54b1a219e526",
+  "revision": "347219e7ca8e5f4ac4f9e91bc78bb16dd96620b1",
   "license": "None declared upstream at this revision. Same organization; see vendor/README.md",
   "files": [
     {
-      "path": "documentation/components/source/authored-elements.ts",
-      "sha256": "695d77202ebd1fe46b1457c8775f81cb3ed17cd943ba3b9ff26366340b9366cd"
+      "path": "package/README.md",
+      "sha256": "c2481031108b1f6d9c7157d2e1350d692ab478ec9593ba386fe7562e12e23a4a"
     },
     {
-      "path": "documentation/components/source/authored-elements.css",
-      "sha256": "882fb7e252ea0d4e227701d7c1b12f7871576205fec09c48c47b1ee838051a54"
+      "path": "package/dist/index.js",
+      "sha256": "5f4ca36b42c070346446d44356cac9823d9e9b70ea6dcb68773a1aa1982da0ed"
     },
     {
-      "path": "documentation/components/source/primitives.css",
-      "sha256": "9b672a4857a507197c4ac5cee04b75bb73e182440fbc56860547eb2f742670ea"
+      "path": "package/dist/packages/layout/index.d.ts",
+      "sha256": "56bd3f1967100a7fca95212b9e494e23f1cea1f3a483c0ec5e7d12fb2175de1d"
     },
     {
-      "path": "documentation/components/source/switcher-coordinator.ts",
-      "sha256": "9f8941985e9229f655a4667baeeabb31f4d38ef4dae07980525317ea54fa7bf3"
+      "path": "package/dist/style.css",
+      "sha256": "4205f94498e40ee56d8b737fc45a80e821e25e059dc05477fc13e9bf105d2b1c"
+    },
+    {
+      "path": "package/package.json",
+      "sha256": "f8ddde6d7c49fe01eb8885154d434cee58eedd37c296b16cba09b4441be0837b"
+    },
+    {
+      "path": "package/style.d.css.ts",
+      "sha256": "269b95d8a017ce4653cae4efb911a758248c8f2ce0d8686d55802bfd83481912"
     }
-  ]
+  ],
+  "artifact": {
+    "file": "design-axioms-layout-0.0.0-local.0.tgz",
+    "sha256": "63b347599f91b23daf18938d89a961aa89f56c36d497742f312fd1f314d77658",
+    "package": "@design-axioms/layout",
+    "version": "0.0.0-local.0",
+    "builtWith": {
+      "node": "v24.22.3",
+      "pnpm": "10.26.2",
+      "typescript": "Version 7.1.0-beta"
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { registerAuthoredComposition } from "../vendor/axiomatic-layout/authored-elements.ts";
+import { registerAuthoredComposition } from "@design-axioms/layout";
 
 const specimen = document.querySelector<HTMLElement>("#specimen")!;
 const follow = document.querySelector<HTMLButtonElement>("#follow")!;
