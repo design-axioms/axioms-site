@@ -1,5 +1,4 @@
-@import "../vendor/axiomatic-layout/primitives.css";
-@import "../vendor/axiomatic-layout/authored-elements.css";
+@import "@design-axioms/layout/style.css";
 
 :root {
   color-scheme: light dark;

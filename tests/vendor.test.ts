@@ -34,23 +34,30 @@ test("the vendored files are the recorded upstream revisions", () => {
   }
 });
 
-test("a local edit to a vendored Layout file is reported", () => {
-  const problems = after((copy) =>
-    fs.appendFileSync(
-      path.join(copy, "axiomatic-layout/primitives.css"),
-      "\n/* local fix */\n",
-    ),
-  );
-  assert.equal(problems.length, 1);
-  assert.match(problems[0]!, /primitives\.css differs from [0-9a-f]{40}/);
-});
+function archive(directory: string) {
+  const { artifact } = JSON.parse(
+    fs.readFileSync(path.join(directory, "provenance.json"), "utf8"),
+  ) as Provenance;
+  assert.ok(artifact);
+  return path.join(directory, artifact.file);
+}
+
+for (const name of ["axiomatic-layout", "design-axioms-color"]) {
+  test(`a different ${name} tarball is reported`, () => {
+    const problems = after((copy) =>
+      fs.appendFileSync(archive(path.join(copy, name)), "damaged package"),
+    );
+    assert.equal(problems.length, 1);
+    assert.match(problems[0]!, /\.tgz differs from its record/);
+  });
+}
 
 test("a missing or unrecorded vendored file is reported", () => {
   assert.match(
     after((copy) =>
-      fs.rmSync(path.join(copy, "axiomatic-layout/switcher-coordinator.ts")),
+      fs.rmSync(archive(path.join(copy, "axiomatic-layout"))),
     ).join("\n"),
-    /switcher-coordinator\.ts is missing/,
+    /\.tgz is missing/,
   );
   assert.match(
     after((copy) =>
@@ -58,15 +65,4 @@ test("a missing or unrecorded vendored file is reported", () => {
     ).join("\n"),
     /extra\.ts has no provenance record/,
   );
-});
-
-test("a different Color tarball is reported", () => {
-  const problems = after((copy) => {
-    const directory = path.join(copy, "design-axioms-color");
-    const tarball = fs
-      .readdirSync(directory)
-      .find((name) => name.endsWith(".tgz"))!;
-    fs.writeFileSync(path.join(directory, tarball), "damaged package");
-  });
-  assert.match(problems.join("\n"), /\.tgz differs from its record/);
 });

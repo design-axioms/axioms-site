@@ -5,7 +5,7 @@
  * - `assets/color.css` is Axiomatic Color's own stylesheet, generated here
  *   from the vendored package. The site chooses semantic surfaces.
  * - `assets/site.js` and `assets/site.css` are bundled from `src/`, which
- *   imports the vendored Layout files directly.
+ *   imports the Layout package and its stylesheet.
  *
  *   node scripts/build.ts
  *
@@ -96,7 +96,7 @@ export async function buildSite() {
   }
 }
 
-/** Builds, then rebuilds when `src/`, the vendored Layout files or
+/** Builds, then rebuilds when `src/`, the installed Layout package or
  * `public/` change. A failed rebuild is reported and the watch continues. */
 export async function watchSite(): Promise<{ stop(): Promise<void> }> {
   prepare();

@@ -1,12 +1,9 @@
 /**
  * Keeps the two upstream dependencies this site builds from.
  *
- * Neither is published, so the repository carries them: Axiomatic Layout as
- * a verbatim snapshot of four source files, Axiomatic Color as the package
- * tarball built from its source. Each directory under `vendor/` has a
- * `provenance.json` naming the exact upstream revision and a SHA-256 for
- * every file, so a clean checkout builds with no sibling directory and a
- * reviewer can tell what the site is running.
+ * This repository carries installable archives of Axiomatic Layout and
+ * Axiomatic Color. Each provenance record names its source commit and the
+ * SHA-256 of the archive and each file inside.
  *
  *   node scripts/vendor.ts check
  *   node scripts/vendor.ts layout <layout checkout> <revision>
@@ -22,18 +19,18 @@ import os from "node:os";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
-const layoutDirectory = path.join(root, "vendor/axiomatic-layout");
-const colorDirectory = path.join(root, "vendor/design-axioms-color");
-
-/** The Layout files the specimen needs, and where they live upstream. */
-const layoutSource = "documentation/components/source";
-const layoutFiles = [
-  "authored-elements.ts",
-  "authored-elements.css",
-  "primitives.css",
-  "switcher-coordinator.ts",
-];
-const colorPackage = "packages/core";
+const packages = {
+  layout: {
+    label: "Layout",
+    directory: "axiomatic-layout",
+    source: "packages/layout",
+  },
+  color: {
+    label: "Color",
+    directory: "design-axioms-color",
+    source: "packages/core",
+  },
+};
 
 export interface VendoredFile {
   /** Path in the upstream repository, or inside the package tarball. */
@@ -121,68 +118,41 @@ export function vendorProblems(
   vendor: string = path.join(root, "vendor"),
 ): string[] {
   const problems: string[] = [];
-  const layoutDirectory = path.join(vendor, "axiomatic-layout");
-  const colorDirectory = path.join(vendor, "design-axioms-color");
-
-  const layout = readProvenance(layoutDirectory);
-  const expected = new Set(["provenance.json"]);
-  for (const file of layout.files) {
-    const name = path.basename(file.path);
-    expected.add(name);
-    const local = path.join(layoutDirectory, name);
-    if (!fs.existsSync(local)) problems.push(`Layout: ${name} is missing`);
-    else if (sha256(fs.readFileSync(local)) !== file.sha256)
-      problems.push(
-        `Layout: ${name} differs from ${layout.revision}. Change it upstream and vendor again`,
-      );
-  }
-  for (const name of fs.readdirSync(layoutDirectory))
-    if (!expected.has(name))
-      problems.push(`Layout: ${name} has no provenance record`);
-
-  const color = readProvenance(colorDirectory);
-  if (!color.artifact) problems.push("Color: no artifact is recorded");
-  else {
-    const tarball = path.join(colorDirectory, color.artifact.file);
-    if (!fs.existsSync(tarball))
-      problems.push(`Color: ${color.artifact.file} is missing`);
-    else {
-      if (sha256(fs.readFileSync(tarball)) !== color.artifact.sha256)
-        problems.push(`Color: ${color.artifact.file} differs from its record`);
-      else if (
-        JSON.stringify(tarballFiles(tarball)) !== JSON.stringify(color.files)
-      )
-        problems.push(`Color: the tarball's contents differ from its record`);
+  for (const { label, directory } of Object.values(packages)) {
+    const location = path.join(vendor, directory);
+    const record = readProvenance(location);
+    if (!record.artifact) {
+      problems.push(`${label}: no artifact is recorded`);
+      continue;
     }
-    for (const name of fs.readdirSync(colorDirectory))
-      if (name !== "provenance.json" && name !== color.artifact.file)
-        problems.push(`Color: ${name} has no provenance record`);
+    const { file, sha256: digest } = record.artifact;
+    const archive = path.join(location, file);
+    if (!fs.existsSync(archive)) problems.push(`${label}: ${file} is missing`);
+    else if (sha256(fs.readFileSync(archive)) !== digest)
+      problems.push(`${label}: ${file} differs from its record`);
+    else if (
+      JSON.stringify(tarballFiles(archive)) !== JSON.stringify(record.files)
+    )
+      problems.push(`${label}: the tarball's contents differ from its record`);
+    for (const name of fs.readdirSync(location))
+      if (name !== "provenance.json" && name !== file)
+        problems.push(`${label}: ${name} has no provenance record`);
   }
   return problems;
-}
-
-function vendorLayout(repository: string, revision: string) {
-  const full = commit(repository, revision);
-  const files = layoutFiles.map((name) => {
-    const upstream = `${layoutSource}/${name}`;
-    const contents = git(repository, "show", `${full}:${upstream}`);
-    fs.writeFileSync(path.join(layoutDirectory, name), contents);
-    return { path: upstream, sha256: sha256(contents) };
-  });
-  writeProvenance(layoutDirectory, {
-    ...readProvenance(layoutDirectory),
-    revision: full,
-    files,
-  });
 }
 
 /**
  * Builds the package the way its own repository does: a clean export of the
  * revision, its locked dependencies, its build script, then `pnpm pack`.
  */
-function vendorColor(repository: string, revision: string) {
+function vendorPackage(
+  name: keyof typeof packages,
+  repository: string,
+  revision: string,
+) {
+  const directory = path.join(root, "vendor", packages[name].directory);
   const full = commit(repository, revision);
-  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), "axioms-color-"));
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), `axioms-${name}-`));
   try {
     const archive = path.join(scratch, "source.tar");
     fs.writeFileSync(archive, git(repository, "archive", "--format=tar", full));
@@ -195,10 +165,10 @@ function vendorColor(repository: string, revision: string) {
         cwd,
         stdio: ["ignore", "inherit", "inherit"],
       });
-    const core = path.join(source, colorPackage);
+    const packageRoot = path.join(source, packages[name].source);
     const manifest = JSON.parse(
-      fs.readFileSync(path.join(core, "package.json"), "utf8"),
-    ) as { name: string; version: string; license: string };
+      fs.readFileSync(path.join(packageRoot, "package.json"), "utf8"),
+    ) as { name: string; version: string; license?: string };
     // A clean export is not a git repository, which the workspace's own
     // `prepare` hook installer requires. No install script is needed to
     // compile the package.
@@ -212,8 +182,8 @@ function vendorColor(repository: string, revision: string) {
     );
     run(source, "--filter", manifest.name, "build");
 
-    const previous = readProvenance(colorDirectory);
-    run(core, "pack", "--pack-destination", scratch);
+    const previous = readProvenance(directory);
+    run(packageRoot, "pack", "--pack-destination", scratch);
     const file = fs.readdirSync(scratch).find((name) => name.endsWith(".tgz"));
     if (!file) throw new Error("pnpm pack produced no tarball");
     const tarball = path.join(scratch, file);
@@ -223,7 +193,7 @@ function vendorColor(repository: string, revision: string) {
     const next: Provenance = {
       ...previous,
       revision: full,
-      license: manifest.license,
+      license: manifest.license ?? previous.license,
       files: tarballFiles(tarball),
       artifact: {
         file,
@@ -233,14 +203,14 @@ function vendorColor(repository: string, revision: string) {
         builtWith: {
           node: process.version,
           pnpm: version(source, "--version"),
-          typescript: version(core, "exec", "tsc", "--version"),
+          typescript: version(packageRoot, "exec", "tsc", "--version"),
         },
       },
     };
-    fs.copyFileSync(tarball, path.join(colorDirectory, file));
-    writeProvenance(colorDirectory, next);
+    fs.copyFileSync(tarball, path.join(directory, file));
+    writeProvenance(directory, next);
     if (previous.artifact && previous.artifact.file !== file)
-      fs.rmSync(path.join(colorDirectory, previous.artifact.file), {
+      fs.rmSync(path.join(directory, previous.artifact.file), {
         force: true,
       });
   } finally {
@@ -260,10 +230,7 @@ if (import.meta.main) {
     repository &&
     revision
   ) {
-    (command === "layout" ? vendorLayout : vendorColor)(
-      path.resolve(repository),
-      revision,
-    );
+    vendorPackage(command, path.resolve(repository), revision);
     console.log(`Vendored ${command} at ${revision}.`);
   } else {
     console.error(

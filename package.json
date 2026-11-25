@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@design-axioms/color": "file:vendor/design-axioms-color/design-axioms-color-0.1.0.tgz",
+    "@design-axioms/layout": "file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz",
     "@playwright/test": "1.64.0",
     "@types/node": "24.19.2",
     "@vercel/routing-utils": "6.6.1",

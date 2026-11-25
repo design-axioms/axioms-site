@@ -11,6 +11,9 @@ importers:
       '@design-axioms/color':
         specifier: file:vendor/design-axioms-color/design-axioms-color-0.1.0.tgz
         version: file:vendor/design-axioms-color/design-axioms-color-0.1.0.tgz
+      '@design-axioms/layout':
+        specifier: file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz
+        version: file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz
       '@playwright/test':
         specifier: 1.64.0
         version: 1.64.0
@@ -36,6 +39,10 @@ packages:
     resolution: {integrity: sha512-Yoko+dVS7O75hk59Sp0+2W34h1JH+zagyR+JTv9yi+T+/O+Oxw4wShFMdL8JDJ+KIqX3LIcJq2XgDKBWPMESiA==, tarball: file:vendor/design-axioms-color/design-axioms-color-0.1.0.tgz}
     version: 0.1.0
     engines: {node: '>=24'}
+
+  '@design-axioms/layout@file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz':
+    resolution: {integrity: sha512-7hrPy5WnIKENhRNKX+jb12FpoO+olJXREo2WEg6WBHtAYBOrXsHSYRKSyJT/4vm9Mim+I2uJpTGbFNuP8PceRw==, tarball: file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz}
+    version: 0.0.0-local.0
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -393,6 +400,8 @@ snapshots:
     dependencies:
       apca-w3: 0.1.9
       culori: 4.0.2
+
+  '@design-axioms/layout@file:vendor/axiomatic-layout/design-axioms-layout-0.0.0-local.0.tgz': {}
 
   '@esbuild/aix-ppc64@0.28.2':
     optional: true
